@@ -9,10 +9,13 @@ let appData = {
   expenses: {
 
   },
-  income = {
-    null,
+  optionalExpenses: {
+
   },
-  savings: "false"
+  income: [],  
+  savings: false
 };
+
+appData.expenses
 
 
