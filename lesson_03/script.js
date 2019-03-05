@@ -42,13 +42,13 @@ function chooseExpenses() {
 
 chooseExpenses();
 
-function chooseOptExpenses() {
-  for (let i = 0; i < 3; i++) {
+function chooseOptExpenses(number) {
+  for (let i = 1; i < number; i++) {
     let l = prompt("Статья необязательных расходов?", "");
     if ((typeof(l)) != null && l != '' && l.length < 50) {
       console.log("done");
 
-      appData.optionalExpenses = l;
+      appData.optionalExpenses[i] = l;
     } else {
     i--;
     console.log("wrong");
@@ -57,7 +57,7 @@ function chooseOptExpenses() {
   
 }
 
-chooseOptExpenses();
+chooseOptExpenses(4);
 
 
 function detectDayBudget() {
