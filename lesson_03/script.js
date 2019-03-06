@@ -11,8 +11,10 @@ function start() {
 
   }
 }
+
 start();
 
+start();
 
 let appData = {
   budget: money,
@@ -42,8 +44,8 @@ function chooseExpenses() {
 
 chooseExpenses();
 
-function chooseOptExpenses(number) {
-  for (let i = 1; i < number; i++) {
+function chooseOptExpenses() {
+  for (let i = 1; i < 3; i++) {
     let l = prompt("Статья необязательных расходов?", "");
     if ((typeof(l)) != null && l != '' && l.length < 50) {
       console.log("done");
@@ -57,7 +59,7 @@ function chooseOptExpenses(number) {
   
 }
 
-chooseOptExpenses(4);
+chooseOptExpenses();
 
 
 function detectDayBudget() {
