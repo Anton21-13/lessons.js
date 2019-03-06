@@ -71,10 +71,14 @@ let appData = {
   
       appData.monthIncom = save/100/12*percent;
       alert("Доход в месяц вашего депозита: " + appData.monthIncom);
+    }
   },
   chooseIncome: function() {
     let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
     appData.income = items.split(", ");
+    appData.income.push(prompt("Может что-то еще"));
+    appData.income.sort();
+
   }
   
 };
