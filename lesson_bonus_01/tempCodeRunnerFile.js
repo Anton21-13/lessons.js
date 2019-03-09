@@ -1,23 +1,8 @@
-'use strict';
-
-let money = prompt("Ваш бюджет в месяц?"),
-  time = prompt("Введите дату в формате YYYY-MM-DD");
-
-let appData = {
-  budget: money,
-  timeData: time,
-  expenses: {},
-  optionalExpenses: {},
-  income: [],  
-  savings: false
+for (let i = 2; i < 100; i++) {
+  if (let b = 2; b < 10; b++) {
+    if (i % b == 0) {
+      continue
+    }
+  }
+  console.log('Делители числа ' + i + ': 1 и ' + i)  
 };
-
-let q1 = prompt("Введите обязатеьную статью расходов в этом месяце"),
-  q2 = prompt("Во сколько обойдется?"),
-  q3 = prompt("Введите обязатеьную статью расходов в этом месяце"),
-  q4 = prompt("Во сколько обойдется?"),
-
-appData.expenses.q1 = q2;
-appData.expenses.q3 = q4;
-
-alert(appData.budget / 30);
