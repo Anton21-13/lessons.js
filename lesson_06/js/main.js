@@ -7,8 +7,8 @@ let startBtn = document.getElementById('start'),
   expensesValue = document.getElementsByClassName('expenses-value')[0],
   optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],
   incomeValue = document.getElementsByClassName('income-value')[0],
-  monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
-  yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
+  monthSavingsValue = document.querySelectorAll('.monthsavings-value')[0],
+  yearSavingsValue = document.querySelectorAll('.yearsavings-value')[0],
 
   expensesItem = document.getElementsByClassName('expenses-item'),
 
@@ -98,24 +98,43 @@ countBtn.addEventListener("click", function() {
 });
 
 incomeItem.addEventListener("input", function() {
-  for (let b = 0; b < 1; b++) {
-    let items = incomeItem.value;
-    if ( (typeof(items)) === 'string' && ltems != '' && (typeof(ltems)) != null) {
-      console.log("done");
-      appData.income = items.split(", ");
-      appData.income.push(prompt("Может что-то еще"));
-      appData.income.sort();
-      appData.income.forEach(function(item) {
-      console.log("Способы полученного заработка: " + item);
-        
-      });
-      incomeValue.textContent = appData.income;
-    } else {
-      b--;
-      console.log("wrong");
-    }
+  let items = incomeItem.value;
+  appData.income = items.split(" , ");
+  incomeValue.textContent = appData.income;  
+});
+
+checkSavings.addEventListener("click", function() {
+  if (appData.savings == true) {
+    appData.savings = false;
+  } else {
+    appData.savings = true;
   }
-  
+});
+
+sumValue.addEventListener("input", function() {
+  if (appData.savings == true) {
+    let sum = +sumValue.value,
+      percent = +percentValue.value;
+
+    appData.monthIncom = sum/100/12*percent;
+    appData.yearIncom = sum/100*percent;
+
+    monthSavingsValue.textContent = appData.monthIncom.toFixed(1);
+    yearSavingsValue.textContent = appData.yearIncom.toFixed(1);
+  }
+});
+
+percentValue.addEventListener("input", function() {
+  if (appData.savings == true) {
+    let sum = +sumValue.value,
+      percent = +percentValue.value;
+
+    appData.monthIncom = sum/100/12*percent;
+    appData.yearIncom = sum/100*percent;
+
+    monthSavingsValue.textContent = appData.monthIncom.toFixed(1);
+    yearSavingsValue.textContent = appData.yearIncom.toFixed(1);
+  }
 });
 
 let appData = {
@@ -124,46 +143,7 @@ let appData = {
   expenses: {},
   optionalExpenses: {},
   income: [],  
-  savings: true,
-  chooseExpenses: function () {
-    
-  },
-  chooseOptExpenses: function () {
-    
-  },
-  detectDayBudget: function() {
-    
-  },
-  detectLevel: function() {
-    
-  },
-  cheсkSavings: function() {
-    if (appData.savings == true) {
-      let save = +prompt("Какова сумма накоплений?"),
-        percent = +prompt("Под какой процент");
-  
-      appData.monthIncom = save/100/12*percent;
-      alert("Доход в месяц вашего депозита: " + appData.monthIncom);
-    }
-  },
-  chooseIncome: function() {/*
-    for (let b = 0; b < 1; b++) {
-      let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
-      if ( (typeof(items)) === 'string' && ltems != '' && (typeof(ltems)) != null) {
-        console.log("done");
-        appData.income = items.split(", ");
-        appData.income.push(prompt("Может что-то еще"));
-        appData.income.sort();
-        appData.income.forEach(function(item) {
-        console.log("Способы полученного заработка: " + item);
-          
-        });
-      } else {
-        b--;
-        console.log("wrong");
-      }
-    }*/
-  }  
+  savings: false,
 };
 
 for (let key in appData) {
