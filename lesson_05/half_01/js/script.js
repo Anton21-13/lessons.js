@@ -16,7 +16,7 @@ li.innerHTML = "Пятый пункт";//вставк твекста в тег
 
 menu.insertBefore(menuItem[2], menuItem[1]);
 
-document.body.style.background = "url(../img/apple_true.jpg) center no-repeat";//смена картинки
+document.body.style.background = "url(img/apple_true.jpg) center no-repeat";//смена картинки
 
 title.textContent = "Мы продаем только подлинную технику Apple";//замена текста
 
