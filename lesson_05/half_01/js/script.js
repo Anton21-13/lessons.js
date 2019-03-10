@@ -1,6 +1,7 @@
 'use strict';
 
 let menu = document.querySelector(".menu"),
+  menuItem = document.querySelectorAll(".menu-item"),
   item = document.querySelector(".menu-item"),
   adv = document.querySelector(".adv"),
   column = document.querySelectorAll(".column"),
@@ -12,6 +13,8 @@ let menu = document.querySelector(".menu"),
 menu.appendChild(li);//добавления тега li в родительский элемент menu
 li.classList.add("menu-item");//присваивание класса тегу
 li.innerHTML = "Пятый пункт";//вставк твекста в тег
+
+menu.insertBefore(menuItem[2], menuItem[1]);
 
 document.body.style.background = "url(../img/apple_true.jpg) center no-repeat";//смена картинки
 
