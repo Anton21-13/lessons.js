@@ -10,7 +10,7 @@ let btnStart = document.getElementById("start"),
   monthSavings = document.querySelectorAll(".monthsavings-value"),
   yearSavings = document.querySelectorAll(".yearsavings-value"),
 
-  expenses = document.getElementsByClassName("expenses-item"),
+  expensesItem = document.getElementsByClassName("expenses-item"),
 
   btn = document.getElementsByTagName("button"),
   btnExpenses = btn[0],
