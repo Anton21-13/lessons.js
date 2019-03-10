@@ -3,16 +3,20 @@
 let menu = document.querySelector(".menu"),
   item = document.querySelector(".menu-item"),
   adv = document.querySelector(".adv"),
-  column = document.querySelectorAll(".column");
+  column = document.querySelectorAll(".column"),
+  title = document.querySelector(".title"),
+  li = document.createElement("li"),
+  answer = document.getElementById("prompt"),
+  qestion = prompt("Как вы относитесь к технике Apple?");
 
+menu.appendChild(li);//добавления тега li в родительский элемент menu
+li.classList.add("menu-item");//присваивание класса тегу
+li.innerHTML = "Пятый пункт";//вставк твекста в тег
 
-document.body.style.background = "url(../img/apple_true.jpg) center no-repeat";
+document.body.style.background = "url(../img/apple_true.jpg) center no-repeat";//смена картинки
 
-let li = document.createElement("li");
+title.textContent = "Мы продаем только подлинную технику Apple";//замена текста
 
-li.classList.add("menu-item");
+column[1].removeChild(adv);//удаление рекламы
 
-li.innerHTML = "Пятый пункт";
-menu.appendChild(li);
-console.log(li);
-column[1].removeChild(adv);
+answer.textContent = qestion;//вставка текста ответа на поставленный вопрос
