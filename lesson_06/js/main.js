@@ -41,6 +41,13 @@ startBtn.addEventListener("click", function() {
   yearValue.value = new Date(Date.parse(time)).getFullYear();
   monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
   dayValue.value = new Date(Date.parse(time)).getDate();
+
+  expensesBtn.disabled = false;
+  expensesBtn.style.background = "";
+  optionalExpensesBtn.disabled = false;
+  optionalExpensesBtn.style.background = "";
+  countBtn.disabled = false;
+  countBtn.style.background = "";
 });
 
 expensesBtn.addEventListener("click", function(){
@@ -77,10 +84,16 @@ optionalExpensesBtn.addEventListener("click", function() {
 });
 
 countBtn.addEventListener("click", function() {
-
   if (appData.budget != undefined) {
-    appData.moneyPerDay = (appData.budget / 30).toFixed();
-    daybudgetValue.textContent = appData.moneyPerDay;
+    let sum = 0;
+
+    for (let i in appData.expenses) {
+      sum += appData.expenses[i];
+
+    }
+
+    appData.moneyPerDay = (appData.budget - sum) / 30;
+    daybudgetValue.textContent = appData.moneyPerDay.toFixed();
   
     if(appData.moneyPerDay < 100) {
       levelValue.textContent = "Минимальный уровень достатка";
@@ -146,6 +159,9 @@ let appData = {
   savings: false,
 };
 
-for (let key in appData) {
-  console.log("Наша программа включает в себя данные: " + key + ":" + appData[key]);
-}
+expensesBtn.disabled = false;
+  expensesBtn.style.background = "white";
+  optionalExpensesBtn.disabled = false;
+  optionalExpensesBtn.style.background = "white";
+  countBtn.disabled = false;
+  countBtn.style.background = "white";
