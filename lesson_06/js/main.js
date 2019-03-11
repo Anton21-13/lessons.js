@@ -159,9 +159,9 @@ let appData = {
   savings: false,
 };
 
-expensesBtn.disabled = false;
-  expensesBtn.style.background = "white";
-  optionalExpensesBtn.disabled = false;
-  optionalExpensesBtn.style.background = "white";
-  countBtn.disabled = false;
-  countBtn.style.background = "white";
+expensesBtn.disabled = true;
+expensesBtn.style.background = "white";
+optionalExpensesBtn.disabled = true;
+optionalExpensesBtn.style.background = "white";
+countBtn.disabled = true;
+countBtn.style.background = "white";
