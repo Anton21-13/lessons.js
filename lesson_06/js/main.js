@@ -44,21 +44,29 @@ startBtn.addEventListener("click", function() {
 
   expensesBtn.disabled = false;
   expensesBtn.style.background = "";
-  optionalExpensesBtn.disabled = false;
-  optionalExpensesBtn.style.background = "";
-  countBtn.disabled = false;
-  countBtn.style.background = "";
+  //optionalExpensesBtn.disabled = false;
+  //optionalExpensesBtn.style.background = "";
+  //countBtn.disabled = false;
+  //countBtn.style.background = "";
 });
+
+expensesBtn.disabled = true;
+expensesBtn.style.background = "white";
+optionalExpensesBtn.disabled = true;
+optionalExpensesBtn.style.background = "white";
+countBtn.disabled = true;
+countBtn.style.background = "white";
 
 expensesBtn.addEventListener("click", function(){
   let sum = 0;
-
+  optionalExpensesBtn.disabled = false;
+  optionalExpensesBtn.style.background = "";
   for (let i = 0; i < expensesItem.length; i++) {
     let a = expensesItem[i].value,
       b = expensesItem[++i].value;
     if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null
       && a != '' && b != '' && a.length < 50) {
-      console.log("done");  
+      console.log("done");
       appData.expenses[a] = b;
       sum += +b;
     } else {
@@ -76,8 +84,12 @@ optionalExpensesBtn.addEventListener("click", function() {
       console.log("done");
       appData.optionalExpenses[i] = l;
       optionalExpensesValue.textContent += appData.optionalExpenses[i] + " ";
+      countBtn.disabled = false;
+      countBtn.style.background = "";
     } else {
-      i = i - 1;  //i--;
+      //i--;
+      //optionalExpensesBtn.disabled = true;
+      //optionalExpensesBtn.style.background = "";
       console.log("wrong");
     }
   }
@@ -159,9 +171,4 @@ let appData = {
   savings: false,
 };
 
-expensesBtn.disabled = true;
-expensesBtn.style.background = "white";
-optionalExpensesBtn.disabled = true;
-optionalExpensesBtn.style.background = "white";
-countBtn.disabled = true;
-countBtn.style.background = "white";
+
