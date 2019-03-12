@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 let startBtn = document.getElementById('start'),
   budgetValue = document.getElementsByClassName('budget-value')[0],
@@ -77,7 +77,7 @@ optionalExpensesBtn.addEventListener("click", function() {
       appData.optionalExpenses[i] = l;
       optionalExpensesValue.textContent += appData.optionalExpenses[i] + " ";
     } else {
-      i--;
+      i = i - 1;  //i--;
       console.log("wrong");
     }
   }
@@ -88,7 +88,7 @@ countBtn.addEventListener("click", function() {
     let sum = 0;
 
     for (let i in appData.expenses) {
-      sum += appData.expenses[i];
+      sum += +appData.expenses[i];
 
     }
 
